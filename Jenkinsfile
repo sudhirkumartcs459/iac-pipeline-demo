@@ -1,6 +1,10 @@
 pipeline {
     agent any
 
+    options {
+        ansiColor('xterm')
+    }
+
     stages {
 
         stage ('AWS infra pre-requisite deployment') {
