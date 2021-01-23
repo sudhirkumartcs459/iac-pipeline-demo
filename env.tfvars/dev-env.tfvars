@@ -1,1 +1,1 @@
-instace_type="t2.micro"
+instancetype="t2.micro"
