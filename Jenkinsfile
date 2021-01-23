@@ -5,7 +5,7 @@ pipeline {
 
         stage ('AWS infra pre-requisite deployment') {
             steps {
-                sh "ansible-playbook ./ansible/tf_backend_setup.yml"
+                sh "ansible-playbook ./ansible/playbooks/tf_backend_setup.yml"
             }
         }
 
