@@ -2,8 +2,8 @@
 set -e
 
 ###  Installing Nginx
-sudo apt update
-sudo apt install nginx
+sudo apt-get update -y
+sudo apt-get install nginx -y
 
 ###  Adjusting the Firewall
 sudo ufw allow 'Nginx HTTP'
