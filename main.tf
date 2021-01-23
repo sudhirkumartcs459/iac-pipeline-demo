@@ -11,7 +11,7 @@ data "aws_ami" "web_ami" {
 
 resource "aws_instance" "web" {
   ami           = data.aws_ami.web_ami.id
-  instance_type = "var.instacetype"
+  instance_type = var.instancetype
 
   tags = {
     Name = "HelloWorld-KR"
