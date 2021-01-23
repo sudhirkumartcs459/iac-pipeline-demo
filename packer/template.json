@@ -12,14 +12,12 @@
                     "name": "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*",
                     "root-device-type": "ebs"
                 },
-                "owners": [
-                    "563297438969"
-                ],
+                "owners": ["099720109477"],
                 "most_recent": true
             },
             "instance_type": "t2.micro",
             "ssh_username": "ubuntu",
-            "ami_name": "jumpserver-{{timestamp}}",
+            "ami_name": "packer-ami-{{timestamp}}",
             "ami_description": "Customized-Ubuntu-AMI",
             "tags": {
                 "Packer_Managed": "True",
