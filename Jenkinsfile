@@ -16,13 +16,13 @@ pipeline {
             }
         }
 
-        stage ('TF Initialize')
+        stage ('TF Initialize') {
             steps {
                 sh "terraform init -input=false"
             }
         }
 
-        stage ('Pre Checks')
+        stage ('Pre Checks') {
             steps {
                 sh "terraform version && terraform fmt -recursive && terraform validate"
             }
