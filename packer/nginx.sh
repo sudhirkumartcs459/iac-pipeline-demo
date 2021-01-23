@@ -7,3 +7,5 @@ sudo apt-get install nginx -y
 
 ###  Adjusting the Firewall
 sudo ufw allow 'Nginx HTTP'
+
+sudo systemctl enable nginx.service
