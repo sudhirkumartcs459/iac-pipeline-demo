@@ -3,6 +3,6 @@ variable "instancetype" {
   description = "Category of EC2 instance"
 }
 
-variable "instanceclass" {
-  description = "Category of RDS instance"
-}
+# variable "instanceclass" {
+#   description = "Category of RDS instance"
+# }
