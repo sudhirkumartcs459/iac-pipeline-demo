@@ -1,5 +1,4 @@
-{
-   packer {
+packer {
   required_plugins {
     amazon = {
       version = ">= 1.2.8"
@@ -11,7 +10,7 @@
 source "amazon-ebs" "ubuntu" {
   ami_name      = "learn-packer-linux-aws"
   instance_type = "t2.micro"
-  region        = "us-east-1"
+  region        = "us-west-2"
   source_ami_filter {
     filters = {
       name                = "ubuntu/images/*ubuntu-jammy-22.04-amd64-server-*"
@@ -19,22 +18,14 @@ source "amazon-ebs" "ubuntu" {
       virtualization-type = "hvm"
     }
     most_recent = true
-    owners      = ["533267062643"]
-            },
-            "instance_type": "t2.micro",
-            "ssh_username": "ubuntu",
-            "ami_name": "packer-ami-{{timestamp}}",
-            "ami_description": "Customized-Ubuntu-AMI",
-            "tags": {
-                "Packer_Managed": "True",
-                "Team": "DevOps"
-            }
-        }
-    ],
-    "provisioners": [
-        {
-            "type": "shell",
-            "script": "./packer/nginx.sh"
-        }
-    ]
+    owners      = ["099720109477"]
+  }
+  ssh_username = "ubuntu"
+}
+
+build {
+  name    = "learn-packer"
+  sources = [
+    "source.amazon-ebs.ubuntu"
+  ]
 }
