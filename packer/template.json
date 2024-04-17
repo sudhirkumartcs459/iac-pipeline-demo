@@ -1,22 +1,25 @@
 {
-    "variables": {
-        "aws_region": "us-east-1"
-    },
-    "builders": [
-        {
-            "type": "amazon-ebs",
-            "access_key": "{{user `aws_access_key`}}",
-      "secret_key": "{{user `aws_secret_key`}}",
-      "profile": "{{user `aws_profile`}}",
-      "region": "{{user `project_region`}}",
-            "source_ami_filter": {
-                "filters": {
-                    "virtualization-type": "hvm",
-                    "name": "ubuntu/images/*ubuntu-xenial-16.04-amd64-server-*",
-                    "root-device-type": "ebs"
-                },
-                "owners": ["533267062643"],
-                "most_recent": true
+   packer {
+  required_plugins {
+    amazon = {
+      version = ">= 1.2.8"
+      source  = "github.com/hashicorp/amazon"
+    }
+  }
+}
+
+source "amazon-ebs" "ubuntu" {
+  ami_name      = "learn-packer-linux-aws"
+  instance_type = "t2.micro"
+  region        = "us-east-1"
+  source_ami_filter {
+    filters = {
+      name                = "ubuntu/images/*ubuntu-jammy-22.04-amd64-server-*"
+      root-device-type    = "ebs"
+      virtualization-type = "hvm"
+    }
+    most_recent = true
+    owners      = ["533267062643"]
             },
             "instance_type": "t2.micro",
             "ssh_username": "ubuntu",
